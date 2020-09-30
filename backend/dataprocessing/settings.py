@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'v-@dsp(hpzh@^m0xf3rz3b=z-8465&uw#-aquh(pipva7khq+*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    "localhost"
+    "localhost",
+    "django-nltk.herokuapp.com"
 ]
 
 
@@ -129,8 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static'
 ]
-
-MEDIA_URL = '/media/'
+STATIC_ROOT = BASE_DIR/"assets"
 
 
 REST_FRAMEWORK = {
@@ -144,7 +144,8 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:8000",
+    "https://django-nltk.herokuapp.com/"
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

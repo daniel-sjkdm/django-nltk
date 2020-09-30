@@ -3,8 +3,6 @@ import nltk
 from nltk import Tree, FreqDist
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import treebank, stopwords
-from nltk.draw.util import CanvasFrame
-from nltk.draw import TreeWidget
 from nltk.stem import WordNetLemmatizer
 from nltk.chat import eliza_chat, rude_chat, suntsu_chat, zen_chat, iesha_chat
 from string import punctuation

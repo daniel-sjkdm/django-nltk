@@ -1,1 +1,1 @@
-web: gunicorn dataprocessing.wsgi --log-file -
+web: gunicorn backend/dataprocessing.wsgi --log-file -

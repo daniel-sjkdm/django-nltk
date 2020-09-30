@@ -1,1 +1,0 @@
-web: gunicorn backend/dataprocessing.wsgi --log-file -

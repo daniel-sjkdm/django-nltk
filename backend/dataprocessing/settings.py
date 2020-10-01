@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -131,6 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static'
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 REST_FRAMEWORK = {
@@ -145,7 +147,9 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8000",
-    "https://django-nltk.herokuapp.com/"
+    "https://django-nltk.herokuapp.com"
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+

@@ -13,6 +13,7 @@ class CommentSerializer(serializers.ModelSerializer):
             "stems",
             "pos_tags",
             "lemma",
+            "post"
         ]
         
 
@@ -25,5 +26,6 @@ class PostSerializer(serializers.ModelSerializer):
             "username",
             "ups",
             "downs",
-            "created"
+            "created",
+            "url"
         ]

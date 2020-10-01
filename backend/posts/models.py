@@ -27,9 +27,9 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField(null=False)
     tokens = models.TextField(null=True)
-    stems = models.JSONField(verbose_name="post stems", null=True, encoder=DjangoJSONEncoder)
-    pos_tags = models.JSONField(verbose_name="post part of speech tags", null=True, encoder=DjangoJSONEncoder)
-    lemma = models.JSONField(verbose_name="post lemma", null=True, encoder=DjangoJSONEncoder)
+    stems = models.JSONField(verbose_name="post stems", null=True)
+    pos_tags = models.JSONField(verbose_name="post part of speech tags", null=True)
+    lemma = models.JSONField(verbose_name="post lemma", null=True)
 
     def __str__(self):
         return f"Comment for post {self.post}"

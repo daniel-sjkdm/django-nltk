@@ -52,7 +52,7 @@
                                 <br/>
                                 <div class="card-actions">
                                     <button class="btn btn-primary btn-sm detail-button" data-toggle="modal" data-target="#post-modal" id={{post.id}}> Comments </button>
-                                    <a class="btn btn-secondary btn-sm" href={{post.url}}> url </a>
+                                    <a class="btn btn-secondary btn-sm" href="{{post.url}}" target="_blank"> url </a>
                                 </div>
                             </div>
                         </div>
@@ -89,23 +89,27 @@
         $(".detail-button").click((event) => {
             event.preventDefault();
             const id = event.target.id;
-            console.log("Post id = ", id);
             $.ajax({
                 type: "GET",
                 url: `http://127.0.0.1:8000/api/comments/${id}`,
                 success: response => {
-                    console.log(response);
-                    response.map(comment => {
-                        $(".modal-body").append(`
-                            <div>
-                                <p> ${comment.content} </p>
-                                <hr/>
-                            </div>
-                        `);
-                    })
+                    $(".modal-body").empty();
+                    if (response.length >= 1) {
+                        response.map(comment => {
+                            $(".modal-body").append(`
+                                <div>
+                                    <p> ${comment.content} </p>
+                                    <hr/>
+                                </div>
+                            `);
+                        });
+                    } 
+                    else {
+                        $(".modal-body").html("The post has no comments!");
+                    }
                 },
                 error: error => {
-                    console.log(error)
+                    console.log(error);
                 }
             })
         });
